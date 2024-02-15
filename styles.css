@@ -1,0 +1,95 @@
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+h1{
+    text-align:center;
+    margin-top: 50px;
+}
+.container{
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px; 
+}
+input {
+    width: 75%;
+    padding: 8px;
+    margin-right:10px;
+    font-size: 16px;
+    border-radius: 10px;
+}
+input:focus{
+    outline:none;
+    border-color: rgb(152, 41, 255);
+}
+button{
+    padding: 11px 30px;
+    border-radius: 14px;
+    background-color: rgb(0, 255, 208);
+    border-color: aqua;
+    border-style: hidden;
+    
+}
+button:hover{
+    color: azure;
+    background-color: black;
+}
+ul{
+    list-style-type: none;
+    padding: 0;
+    max-height: 600px;
+    overflow-y: auto;
+}
+li {
+    margin: 20px 0;
+    padding: 20px;
+    border: 1px solid #00f2ff;
+    background-color: #f7f7f7;
+    position: relative; 
+    border-radius: 12px;
+  }
+  
+.button-container {
+    position: absolute; 
+    top: 50%; 
+    right: 10px; 
+    transform: translateY(-50%); 
+  }
+  
+.button-container button {
+    margin-left: 10px; 
+    margin-right: 10px; 
+}
+.notification {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 0, 0, 0.8);
+    color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    z-index: 9999;
+  }
+  /* Style for scrollbar */
+::-webkit-scrollbar {
+    width: 10px; /* Width of the scrollbar */
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #bbffee; /* Color of the track */
+  }
+  
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #888; /* Color of the thumb */
+    border-radius: 5px; /* Rounded corners */
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555; /* Darker color on hover */
+  }
+  
