@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", function() {
     // Add event listener for the form submission
     const taskForm = document.getElementById('taskForm');
     taskForm.addEventListener('submit', function(event) {
-      event.preventDefault(); // Prevent form submission
+      event.preventDefault(); 
       addTask();
     });
   });
@@ -76,7 +76,7 @@ document.addEventListener("DOMContentLoaded", function() {
       editTask(li);
     };
   
-    // Add both buttons to the same container
+  
     const buttonContainer = document.createElement('div');
     buttonContainer.classList.add('button-container');
     buttonContainer.appendChild(deleteButton);
