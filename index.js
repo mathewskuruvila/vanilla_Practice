@@ -38,32 +38,34 @@ function loadTasks() {
   };
 }
 
-
-
-
 function addTask() {
   const taskInput = document.getElementById('taskInput');
   const taskText = taskInput.value.trim();
 
-  if (taskText !== '') {
-    isTaskDuplicate(taskText, function(isDuplicate) {
-      if (!isDuplicate) {
-        const transaction = db.transaction(['tasks'], 'readwrite');
-        const objectStore = transaction.objectStore('tasks');
-        const request = objectStore.add({ taskText: taskText });
-
-        request.onsuccess = function(event) {
-          addTaskToDOM(taskText, event.target.result);
-        };
-
-        transaction.oncomplete = function() {
-          taskInput.value = '';
-        };
-      } else {
-        showNotification('Task already exists!');
-      }
-    });
+  // Check if the task text is empty
+  if (taskText === '') {
+    showNotification('Please enter a task before adding!');
+    return; // Exit the function early if the task text is empty
   }
+
+  // Continue adding the task if the task text is not empty
+  isTaskDuplicate(taskText, function(isDuplicate) {
+    if (!isDuplicate) {
+      const transaction = db.transaction(['tasks'], 'readwrite');
+      const objectStore = transaction.objectStore('tasks');
+      const request = objectStore.add({ taskText: taskText });
+
+      request.onsuccess = function(event) {
+        addTaskToDOM(taskText, event.target.result);
+      };
+
+      transaction.oncomplete = function() {
+        taskInput.value = '';
+      };
+    } else {
+      showNotification('Task already exists!');
+    }
+  });
 }
 
 function isTaskDuplicate(taskText, callback) {
